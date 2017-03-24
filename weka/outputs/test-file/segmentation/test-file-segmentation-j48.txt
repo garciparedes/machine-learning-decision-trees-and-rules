@@ -1,0 +1,102 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     segmentation-data
+Instances:    210
+Attributes:   20
+              REGION-CENTROID-COL
+              REGION-CENTROID-ROW
+              REGION-PIXEL-COUNT
+              SHORT-LINE-DENSITY-5
+              SHORT-LINE-DENSITY-2
+              VEDGE-MEAN
+              VEDGE-SD
+              HEDGE-MEAN
+              HEDGE-SD
+              INTENSITY-MEAN
+              RAWRED-MEAN
+              RAWBLUE-MEAN
+              RAWGREEN-MEAN
+              EXRED-MEAN
+              EXBLUE-MEAN
+              EXGREEN-MEAN
+              VALUE-MEAN
+              SATURATION-MEAN
+              HUE-MEAN
+              CLASS
+Test mode:    user supplied test set:  size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+REGION-CENTROID-ROW <= 160
+|   RAWGREEN-MEAN <= 64.55556
+|   |   VALUE-MEAN <= 39.666668
+|   |   |   HUE-MEAN <= -1.802554
+|   |   |   |   REGION-CENTROID-ROW <= 145
+|   |   |   |   |   HUE-MEAN <= -2.094303
+|   |   |   |   |   |   EXGREEN-MEAN <= -7.444445
+|   |   |   |   |   |   |   REGION-CENTROID-ROW <= 116: WINDOW (8.0)
+|   |   |   |   |   |   |   REGION-CENTROID-ROW > 116: FOLIAGE (3.0/1.0)
+|   |   |   |   |   |   EXGREEN-MEAN > -7.444445: FOLIAGE (25.0/1.0)
+|   |   |   |   |   HUE-MEAN > -2.094303: WINDOW (13.0)
+|   |   |   |   REGION-CENTROID-ROW > 145
+|   |   |   |   |   INTENSITY-MEAN <= 7.777778: WINDOW (3.0/1.0)
+|   |   |   |   |   INTENSITY-MEAN > 7.777778: CEMENT (4.0)
+|   |   |   HUE-MEAN > -1.802554
+|   |   |   |   HUE-MEAN <= -0.57094: BRICKFACE (31.0/2.0)
+|   |   |   |   HUE-MEAN > -0.57094: WINDOW (6.0/1.0)
+|   |   VALUE-MEAN > 39.666668
+|   |   |   HEDGE-MEAN <= 26.444445: CEMENT (25.0)
+|   |   |   HEDGE-MEAN > 26.444445: FOLIAGE (3.0)
+|   RAWGREEN-MEAN > 64.55556: SKY (30.0)
+REGION-CENTROID-ROW > 160
+|   RAWRED-MEAN <= 21.666666: GRASS (29.0)
+|   RAWRED-MEAN > 21.666666: PATH (30.0)
+
+Number of Leaves  : 	13
+
+Size of the tree : 	25
+
+
+Time taken to build model: 0.01 seconds
+
+=== Evaluation on test set ===
+
+Time taken to test model on supplied test set: 0.02 seconds
+
+=== Summary ===
+
+Correctly Classified Instances        1911               91      %
+Incorrectly Classified Instances       189                9      %
+Kappa statistic                          0.895
+Mean absolute error                      0.0308
+Root mean squared error                  0.1544
+Relative absolute error                 12.558  %
+Root relative squared error             44.1105 %
+Total Number of Instances             2100
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.933    0.008    0.952      0.933    0.943      0.933    0.967     0.906     BRICKFACE
+                 1.000    0.001    0.993      1.000    0.997      0.996    0.999     0.993     SKY
+                 0.873    0.033    0.814      0.873    0.842      0.816    0.920     0.773     FOLIAGE
+                 0.877    0.017    0.895      0.877    0.886      0.867    0.947     0.827     CEMENT
+                 0.780    0.041    0.760      0.780    0.770      0.731    0.920     0.686     WINDOW
+                 0.973    0.002    0.986      0.973    0.980      0.977    0.986     0.964     PATH
+                 0.933    0.002    0.986      0.933    0.959      0.953    0.991     0.968     GRASS
+Weighted Avg.    0.910    0.015    0.912      0.910    0.911      0.896    0.962     0.874
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   f   g   <-- classified as
+ 280   0   0   0  20   0   0 |   a = BRICKFACE
+   0 300   0   0   0   0   0 |   b = SKY
+   4   2 262  12  20   0   0 |   c = FOLIAGE
+   2   0  14 263  18   0   3 |   d = CEMENT
+   8   0  46  12 234   0   0 |   e = WINDOW
+   0   0   0   7   0 292   1 |   f = PATH
+   0   0   0   0  16   4 280 |   g = GRASS

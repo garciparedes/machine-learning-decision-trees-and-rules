@@ -1,0 +1,82 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.rules.OneR -B 6
+Relation:     segmentation-data
+Instances:    210
+Attributes:   20
+              REGION-CENTROID-COL
+              REGION-CENTROID-ROW
+              REGION-PIXEL-COUNT
+              SHORT-LINE-DENSITY-5
+              SHORT-LINE-DENSITY-2
+              VEDGE-MEAN
+              VEDGE-SD
+              HEDGE-MEAN
+              HEDGE-SD
+              INTENSITY-MEAN
+              RAWRED-MEAN
+              RAWBLUE-MEAN
+              RAWGREEN-MEAN
+              EXRED-MEAN
+              EXBLUE-MEAN
+              EXGREEN-MEAN
+              VALUE-MEAN
+              SATURATION-MEAN
+              HUE-MEAN
+              CLASS
+Test mode:    user supplied test set:  size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+VALUE-MEAN:
+	< 1.333333	-> WINDOW
+	< 7.0	-> FOLIAGE
+	< 8.8333335	-> BRICKFACE
+	< 11.5	-> WINDOW
+	< 21.055555	-> GRASS
+	< 31.333332499999997	-> BRICKFACE
+	< 58.5	-> CEMENT
+	< 78.38889	-> PATH
+	>= 78.38889	-> SKY
+(142/210 instances correct)
+
+
+Time taken to build model: 0.01 seconds
+
+=== Evaluation on test set ===
+
+Time taken to test model on supplied test set: 0.03 seconds
+
+=== Summary ===
+
+Correctly Classified Instances        1206               57.4286 %
+Incorrectly Classified Instances       894               42.5714 %
+Kappa statistic                          0.5033
+Mean absolute error                      0.1216
+Root mean squared error                  0.3488
+Relative absolute error                 49.6667 %
+Root relative squared error             99.6661 %
+Total Number of Instances             2100
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.737    0.147    0.455      0.737    0.562      0.489    0.795     0.373     BRICKFACE
+                 1.000    0.024    0.872      1.000    0.932      0.922    0.988     0.872     SKY
+                 0.417    0.058    0.546      0.417    0.473      0.403    0.679     0.311     FOLIAGE
+                 0.453    0.106    0.417      0.453    0.435      0.336    0.674     0.267     CEMENT
+                 0.273    0.042    0.519      0.273    0.358      0.307    0.616     0.246     WINDOW
+                 0.627    0.057    0.648      0.627    0.637      0.578    0.785     0.460     PATH
+                 0.513    0.063    0.577      0.513    0.543      0.473    0.725     0.366     GRASS
+Weighted Avg.    0.574    0.071    0.576      0.574    0.563      0.501    0.752     0.413
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   f   g   <-- classified as
+ 221   0  31  30   5   0  13 |   a = BRICKFACE
+   0 300   0   0   0   0   0 |   b = SKY
+  55   3 125  19  51   4  43 |   c = FOLIAGE
+  19  37   0 136   2  98   8 |   d = CEMENT
+  69   0  73  27  82   0  49 |   e = WINDOW
+   2   4   0 106   0 188   0 |   f = PATH
+ 120   0   0   8  18   0 154 |   g = GRASS

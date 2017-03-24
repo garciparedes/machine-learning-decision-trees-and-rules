@@ -1,0 +1,87 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.rules.JRip -F 3 -N 2.0 -O 2 -S 1
+Relation:     segmentation-data
+Instances:    210
+Attributes:   20
+              REGION-CENTROID-COL
+              REGION-CENTROID-ROW
+              REGION-PIXEL-COUNT
+              SHORT-LINE-DENSITY-5
+              SHORT-LINE-DENSITY-2
+              VEDGE-MEAN
+              VEDGE-SD
+              HEDGE-MEAN
+              HEDGE-SD
+              INTENSITY-MEAN
+              RAWRED-MEAN
+              RAWBLUE-MEAN
+              RAWGREEN-MEAN
+              EXRED-MEAN
+              EXBLUE-MEAN
+              EXGREEN-MEAN
+              VALUE-MEAN
+              SATURATION-MEAN
+              HUE-MEAN
+              CLASS
+Test mode:    user supplied test set:  size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+JRIP rules:
+===========
+
+(SATURATION-MEAN >= 0.595282) and (HUE-MEAN <= -2.094395) => CLASS=FOLIAGE (24.0/1.0)
+(HUE-MEAN <= -2.356754) and (REGION-CENTROID-ROW >= 75) => CLASS=FOLIAGE (8.0/2.0)
+(RAWRED-MEAN <= 4.666667) => CLASS=WINDOW (18.0/1.0)
+(HEDGE-MEAN <= 0.555555) and (VEDGE-MEAN >= 0.722223) => CLASS=WINDOW (5.0/0.0)
+(SATURATION-MEAN >= 0.477489) and (REGION-CENTROID-ROW <= 95) => CLASS=WINDOW (4.0/0.0)
+(REGION-CENTROID-ROW >= 161) and (INTENSITY-MEAN >= 32.555557) => CLASS=PATH (28.0/0.0)
+(EXRED-MEAN >= -1.444444) => CLASS=BRICKFACE (25.0/1.0)
+(EXRED-MEAN >= -6.222222) and (REGION-CENTROID-ROW <= 60) => CLASS=BRICKFACE (4.0/0.0)
+(INTENSITY-MEAN >= 90.62963) => CLASS=SKY (29.0/0.0)
+(EXBLUE-MEAN <= 5.222222) => CLASS=GRASS (29.0/0.0)
+ => CLASS=CEMENT (36.0/6.0)
+
+Number of Rules : 11
+
+
+Time taken to build model: 0.07 seconds
+
+=== Evaluation on test set ===
+
+Time taken to test model on supplied test set: 0.05 seconds
+
+=== Summary ===
+
+Correctly Classified Instances        1770               84.2857 %
+Incorrectly Classified Instances       330               15.7143 %
+Kappa statistic                          0.8167
+Mean absolute error                      0.0533
+Root mean squared error                  0.1972
+Relative absolute error                 21.7596 %
+Root relative squared error             56.3583 %
+Total Number of Instances             2100
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.727    0.007    0.948      0.727    0.823      0.807    0.945     0.791     BRICKFACE
+                 0.943    0.000    1.000      0.943    0.971      0.967    0.980     0.964     SKY
+                 0.853    0.037    0.795      0.853    0.823      0.793    0.928     0.755     FOLIAGE
+                 0.923    0.110    0.583      0.923    0.715      0.680    0.907     0.549     CEMENT
+                 0.650    0.030    0.783      0.650    0.710      0.671    0.910     0.608     WINDOW
+                 0.840    0.000    1.000      0.840    0.913      0.905    0.985     0.932     PATH
+                 0.963    0.000    1.000      0.963    0.981      0.979    0.985     0.973     GRASS
+Weighted Avg.    0.843    0.026    0.873      0.843    0.848      0.829    0.948     0.796
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   f   g   <-- classified as
+ 218   0   0  76   6   0   0 |   a = BRICKFACE
+   0 283   5   7   5   0   0 |   b = SKY
+   0   0 256  21  23   0   0 |   c = FOLIAGE
+   8   0   1 277  14   0   0 |   d = CEMENT
+   1   0  43  61 195   0   0 |   e = WINDOW
+   0   0  16  32   0 252   0 |   f = PATH
+   3   0   1   1   6   0 289 |   g = GRASS
