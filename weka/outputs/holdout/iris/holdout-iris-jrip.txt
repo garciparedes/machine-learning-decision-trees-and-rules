@@ -1,6 +1,6 @@
 === Run information ===
 
-Scheme:       weka.classifiers.rules.OneR -B 6
+Scheme:       weka.classifiers.rules.JRip -F 3 -N 2.0 -O 2 -S 1
 Relation:     iris
 Instances:    150
 Attributes:   5
@@ -13,14 +13,17 @@ Test mode:    split 66.0% train, remainder test
 
 === Classifier model (full training set) ===
 
-petalwidth:
-	< 0.8	-> Iris-setosa
-	< 1.75	-> Iris-versicolor
-	>= 1.75	-> Iris-virginica
-(144/150 instances correct)
+JRIP rules:
+===========
+
+(petallength >= 3.3) and (petalwidth <= 1.6) and (petallength <= 4.9) => class=Iris-versicolor (46.0/0.0)
+(petallength <= 1.9) => class=Iris-setosa (50.0/0.0)
+ => class=Iris-virginica (54.0/4.0)
+
+Number of Rules : 3
 
 
-Time taken to build model: 0 seconds
+Time taken to build model: 0.02 seconds
 
 === Evaluation on test split ===
 
@@ -28,26 +31,26 @@ Time taken to test model on test split: 0 seconds
 
 === Summary ===
 
-Correctly Classified Instances          49               96.0784 %
-Incorrectly Classified Instances         2                3.9216 %
-Kappa statistic                          0.9408
-Mean absolute error                      0.0261
-Root mean squared error                  0.1617
-Relative absolute error                  5.8688 %
-Root relative squared error             34.2012 %
+Correctly Classified Instances          47               92.1569 %
+Incorrectly Classified Instances         4                7.8431 %
+Kappa statistic                          0.8821
+Mean absolute error                      0.0808
+Root mean squared error                  0.2233
+Relative absolute error                 18.1437 %
+Root relative squared error             47.2352 %
 Total Number of Instances               51
 
 === Detailed Accuracy By Class ===
 
                  TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
-                 1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     Iris-setosa
-                 1.000    0.063    0.905      1.000    0.950      0.921    0.969     0.905     Iris-versicolor
-                 0.882    0.000    1.000      0.882    0.938      0.913    0.941     0.922     Iris-virginica
-Weighted Avg.    0.961    0.023    0.965      0.961    0.961      0.942    0.969     0.938
+                 1.000    0.056    0.882      1.000    0.938      0.913    0.972     0.882     Iris-setosa
+                 0.895    0.063    0.895      0.895    0.895      0.832    0.891     0.840     Iris-versicolor
+                 0.882    0.000    1.000      0.882    0.938      0.913    0.971     0.941     Iris-virginica
+Weighted Avg.    0.922    0.040    0.926      0.922    0.922      0.883    0.942     0.886
 
 === Confusion Matrix ===
 
   a  b  c   <-- classified as
  15  0  0 |  a = Iris-setosa
-  0 19  0 |  b = Iris-versicolor
+  2 17  0 |  b = Iris-versicolor
   0  2 15 |  c = Iris-virginica

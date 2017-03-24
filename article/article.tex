@@ -70,17 +70,17 @@
 
 		\begin{table}[h]
 			\centering
-			\begin{tabular}{ | c | c | c | c | c | c |}
+			\begin{tabu}{ | c | c | c | c | c | c |}
 				\hline
 				\multicolumn{6}{ | c | }{Holdout $2/3,1/3$ Repetido} \\ \hline
 				\multirow{2}{*}{Datos}	& \multicolumn{5}{ c |}{Tasa de Error} \\ \cline{2-6}
-																& \emph{J48}	& \emph{1R}	& \emph{PRISM}	& \emph{JRIP} & \emph{PART}	\\ \hline
-				Iris 										& $0\%$				& $0\%$				& $0\%$				& $0\%$				& $0\%$				\\ \hline
-				Labor 									& $0\%$				& $0\%$				& $0\%$				& $0\%$				& $0\%$				\\ \hline
-				Soybean 								& $0\%$				& $0\%$				& $0\%$				& $0\%$				& $0\%$				\\ \hline
-				Weather 								& $0\%$				& $0\%$				& $0\%$				& $0\%$				& $0\%$				\\
+																& \emph{J48}	& \emph{1R}		& \emph{PRISM}	& \emph{JRIP} & \emph{PART}	\\ \hline
+				Iris 										& $3.9216\%$	& $3.9216\%$	& ---						& $7.8431\%$	& $3.9216\%$	\\ \hline
+				Labor 									& $10.5263\%$	& $15.7895\%$	& ---						& $10.5263\%$	& $21.0526\%$	\\ \hline
+				Soybean 								& $9.4828\%$	& $60.7759\%$	& ---						& $8.6207\%$	& $9.9138\%$	\\ \hline
+				Weather 								& $60.0\%$		& $60.0\%$		& $40.0\%$			& $60.0\%$		& $60.0\%$		\\
 				\hline
-			\end{tabular}
+			\end{tabu}
 			\caption{Tasas de Error mediante la metodología experimental \emph{Holdout $2/3,1/3$}}
 			\label{table:holdout-results}
 		\end{table}
@@ -94,14 +94,14 @@
 
 		\begin{table}[h]
 			\centering
-			\begin{tabular}{ | c | c | c | c | c | c | }
+			\begin{tabu}{ | c | c | c | c | c | c | }
 				\hline
 				\multicolumn{6}{ | c | }{Holdout $2/3,1/3$ Repetido} \\ \hline
 				\multirow{2}{*}{Datos}	& \multicolumn{5}{ c |}{Tasa de Error} \\ \cline{2-6}
-																& \emph{J48}	& \emph{1R}	& \emph{PRISM}	& \emph{JRIP} & \emph{PART}	\\ \hline
-				Image Segmentation			& $0\%$				& $0\%$				& $0\%$				& $0\%$				& $0\%$				\\
+																& \emph{J48}	& \emph{1R}		& \emph{PRISM}	& \emph{JRIP} & \emph{PART}	\\ \hline
+				Image Segmentation			& $9.0\%$			& $42.5714\%$	& ---						& $15.7143\%$	& $10.4286\%$	\\
 				\hline
-			\end{tabular}
+			\end{tabu}
 			\caption{Tasas de Error [TODO ]}
 			\label{table:custom-dataset}
 		\end{table}
