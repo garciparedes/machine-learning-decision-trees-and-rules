@@ -21,7 +21,7 @@
 %-----------------------------
 
 	\begin{abstract}
-		\noindent [TODO]
+		\noindent En este documento se realizan distintos experimentos basados en \emph{Holdout} para analizar el comportamiento de algoritmos de aprendizaje basados en reglas y compararlos con los basados en generación de árboles de decisión. Dicha tarea se lleva a cabo sobre conjuntos de datos de distinta naturaleza.
 	\end{abstract}
 
 %-----------------------------
@@ -36,7 +36,7 @@
 		En este documento se exponen los resultados obtenidos de realizar un conjunto de experimentos sobre varios conjuntos de datos de distintas características sobre algoritmos de aprendizaje automático basados en aprendizaje supervisado. Para ello se ha utilizado la suite de aprendizaje automático \textbf{Weka} \cite{tool:weka}, la cual ha sido es desarrollada por la \emph{Universidad de Waikato}, Nueva Zelanda.
 
 		\paragraph{}
-		El motivo de dichos experimentos es la comparación entre estrategias de aprendizaje basadas en \emph{árboles de decisión} contra estrategias basadas en \emph{generación de reglas}. En las subsecciones \ref{sec:algorithms} y \ref{sec:datasets} se describen respectivamente los \emph{Algoritmos de Aprendizaje} y los \emph{Conjuntos de Datos} utilizados. Seguidamente, en la sección \ref{sec:e1} se exponen los resultados de realizar un experimento de \emph{Holdout} sobre 4 de los conjuntos de datos. Seguidamente, en la sección \ref{sec:e2} se realiza el mismo experimento, pero esta vez sobre un conjunto de datos cuya partición de instancias de entrenamiento y test viene dada a priori tal y como se explicará. Por último, en la sección \ref{sec:conclusions} se realiza un breve comentario acerca de los resultados obtenidos.
+		A partir de dichos experimentos se realiza una comparación entre estrategias de aprendizaje basadas en \emph{árboles de decisión} frente a basadas en \emph{generación de reglas}. En las subsecciones \ref{sec:algorithms} y \ref{sec:datasets} se describen los \emph{Algoritmos de Aprendizaje} y los \emph{Conjuntos de Datos}. Seguidamente, en la sección \ref{sec:e1} se exponen los resultados de realizar un experimento de \emph{Holdout} sobre 4 de los conjuntos de datos, y en la sección \ref{sec:e2} se realiza el mismo experimento, pero esta vez sobre un conjunto de datos cuya partición de instancias de entrenamiento y test viene dada a priori tal y como se explicará. Por último, en la sección \ref{sec:conclusions} se realiza un breve comentario acerca de los resultados obtenidos.
 
 
 		\subsection{Algoritmos de Aprendizaje}
@@ -53,20 +53,21 @@
 			Una vez descrito el algoritmo utilizado para representar los algoritmos basasados en generación de árboles de decisión, se describe el caso de los basados en reglas. En este caso son \emph{1R}, \emph{PRISM}, \emph{JRIP} y \emph{PART}:
 
 			\begin{itemize}
-				\item \textbf{1R}:
+				\item \textbf{1R}: Es uno de los métodos más simples de generación de reglas. Se basa en la generación de un conjunto de reglas a partir de un único atributo. Por tanto, genera un árbol de profundidad 1. Es uno de los métodos más simples y de menor coste computacional, lo cual presenta una gran diferencia en rendimiento con respecto a alternativas más complejas en los casos en que el conjunto de datos posee una estructura muy simple.
 
-				\item \textbf{PRISM}:
+				\item \textbf{PRISM}: Es un algoritmo de \emph{aprendizaje basado en reglas} básico cuya intuición se basa en el recubrimiento secuencial del espacio de búsqueda. Es equivalente a \emph{ID3} en el caso de los árboles de decisión puesto que su uso está restringido a conjuntos de datos con atributos discretos y sin valores desconocidos. Una extensión mejorada del mismo que si permite su uso en dichos casos es \emph{RIPPER}
 
 				\item \textbf{JRIP}: Es la implementación en Java de \emph{RIPPER}, un método de aprendizaje supervisado basado en reglas cuyas siglas significan \say{\emph{Repeated Incremental Pruning to Produce Error Reduction}}, lo que puede entenderse como la eliminación de reglas que se cumplen con pocas instancias para reducir el sobreajuste producido en la fase de aprendizaje, que genera todo el conjunto de reglas posibles a partir de una determinada heurística.
 
-				\item \textbf{PART}:
+				\item \textbf{PART}: Es un algoritmo similar a \emph{RIPPER}, solo que en este caso genera el conjunto de reglas a partir de árboles podados previamente, lo cual evita la realización de una poda global. Utiliza conjuntamente técnicas de \say{separa y vencerás} junto con \say{divide y vencerás}.
+
 			\end{itemize}
 
 		\subsection{Conjuntos de Datos}
 		\label{sec:datasets}
 
 			\paragraph{}
-			[TODO ]
+			El siguiente paso es describir el los conjuntos de datos que se han utilizado para la realización de los distintos experimentos. Esto se llevará a cabo en dos partes. En primer lugar se describen los conjuntos de datos predefinidos en la suite de aprendizaje automático \emph{Weka}:
 
 			\begin{itemize}
 
@@ -81,11 +82,11 @@
 			\end{itemize}
 
 			\paragraph{}
-			[TODO ]
+			El conjunto de datos restante posee una característica diferenciadora del resto. En este caso se suministra divido en dos ficheros, de los cuales uno representa las instancias que se deben utilizar para entrenamiento mientras que el segundo se corresponde con los casos de test:
 
 			\begin{itemize}
 
-				\item	\textbf{Image Segmentation}\cite{dataset:segmentation}:
+				\item	\textbf{Image Segmentation}\cite{dataset:segmentation}: Está formado por \emph{210 instancias} de entramiento y \emph{2100 instancias} destinadas a test. Están formadas por \emph{19 atributos}, todos ellos de carácter real. La clase de destino puede tomar \emph{7 valores} distintos. El conjunto de datos se corresponde con un conjunto de instancias referidas a características de imágenes que pretenden determinar el contenido de las mismas.
 
 			\end{itemize}
 
@@ -97,13 +98,13 @@
 
 
 		\paragraph{}
-		Los resultados obtenidos tras realizar el experimento descrito en el párrafo anterior se muestran en la tabla \ref{table:holdout-results}.
+		Los resultados obtenidos tras realizar el experimento descrito en el párrafo anterior se muestran en la tabla \ref{table:holdout-results}. Debido a la similitud en cuanto a los resultados obtenidos en este experimento y los obtenidos en la sección \ref{sec:e2} se ha decidido realizar un comentario acerca de los mismos en la secciónn \ref{sec:conclusions} destinada a la conclusión.
 
 		\begin{table}[h]
 			\centering
 			\begin{tabu}{ | c | c | c | c | c | c |}
 				\hline
-				\multicolumn{6}{ | c | }{Holdout $2/3,1/3$ Repetido} \\ \hline
+				\multicolumn{6}{ | c | }{Holdout $2/3,1/3$} \\ \hline
 				\multirow{2}{*}{Datos}	& \multicolumn{5}{ c |}{Tasa de Error} \\ \cline{2-6}
 																& \emph{J48}	& \emph{1R}		& \emph{PRISM}	& \emph{JRIP} & \emph{PART}	\\ \hline
 				Iris 										& $3.9216\%$	& $3.9216\%$	& ---						& $7.8431\%$	& $3.9216\%$	\\ \hline
@@ -112,7 +113,7 @@
 				Weather 								& $60.0\%$		& $60.0\%$		& $40.0\%$			& $60.0\%$		& $60.0\%$		\\
 				\hline
 			\end{tabu}
-			\caption{Tasas de Error mediante la metodología experimental \emph{Holdout $2/3,1/3$}}
+			\caption{Tasas de error obtenidas mediante la metodología experimental \emph{Holdout $2/3,1/3$}}
 			\label{table:holdout-results}
 		\end{table}
 
@@ -120,20 +121,23 @@
 	\label{sec:e2}
 
 		\paragraph{}
-		[TODO ]
+		En este caso, el experimento es similar a la realización de un \emph{Holdout estratificado}. La razón por la cual en este caso se denomina estratificado es consecuencia de la descripción que acompaña al conjunto de datos. En la misma se especifica que tanto en el conjunto de datos de entrenamiento como de prueba se presenta la misma proporción de instancias pertenecientes a cada clase. El \emph{Holdout} se ha realizado siguiendo una partición $210/2310,2100/2310$. Nótese que el conjunto de datos de prueba es aproximadamente del orden de 10 veces más grande que el de entrenamiento. Esto es algo poco común en tareas experimentales, donde se suele seguir la regla $2/3,1/3$, pero a partir de la intuición se puede comprobar que dicha estrategia es más semejante a un caso real, en el cual es más difícil poseer más instancias de entrenamiento que las que las que se utilizarán en la realidad.
+
+		\paragraph{}
+		Los resultados obtenidos tras realizar el experimento descrito en el párrafo anterior se muestran en la tabla \ref{table:custom-dataset}. Debido a la similitud en cuanto a los resultados obtenidos en este experimento y los obtenidos en la sección \ref{sec:e1} se ha decidido realizar un comentario acerca de los mismos en la secciónn \ref{sec:conclusions} destinada a la conclusión.
 
 
 		\begin{table}[h]
 			\centering
 			\begin{tabu}{ | c | c | c | c | c | c | }
 				\hline
-				\multicolumn{6}{ | c | }{Holdout $2/3,1/3$ Repetido} \\ \hline
+				\multicolumn{6}{ | c | }{Holdout Estratificado} \\ \hline
 				\multirow{2}{*}{Datos}	& \multicolumn{5}{ c |}{Tasa de Error} \\ \cline{2-6}
 																& \emph{J48}	& \emph{1R}		& \emph{PRISM}	& \emph{JRIP} & \emph{PART}	\\ \hline
 				Image Segmentation			& $9.0\%$			& $42.5714\%$	& ---						& $15.7143\%$	& $10.4286\%$	\\
 				\hline
 			\end{tabu}
-			\caption{Tasas de Error [TODO ]}
+			\caption{Tasas de error obtenidas sobre el conjunto de datos \emph{Image Segmentation}}
 			\label{table:custom-dataset}
 		\end{table}
 
@@ -142,10 +146,28 @@
 	\label{sec:conclusions}
 
 		\paragraph{}
-		[TODO ]
+		Tras la realización de los distintos experimentos y el análisis de los resultados contenidos en las tablas \ref{table:holdout-results} y \ref{table:custom-dataset} se pueden apreciar las siguientes peculiaridades:
+		\begin {enumerate*} [label=\itshape\alph*\upshape)]
+
+			\item el algoritmo \emph{J48} es quien mejores resultados obtiene en promedio, siendo gravemente penalizado en el caso de \emph{Weather} debido al escaso número de instancias de entrenamiento y la poda de ramas,
+
+			\item el algoritmo \emph{1R} presenta los peores resultados en promedio con respecto al resto de alternativas, sin embargo destaca sobre el conjunto de datos \emph{Iris} obteniendo la misma tasa de error que \emph{J48},
+
+			\item en el caso de \emph{PRISM} y debido a su simplicidad, que no permite la entrada de atributos continuos,  tan solo es posible su utilización en el caso del conjunto de datos \emph{Weather}, en el cual presenta los mejores resultados,
+
+			\item el algoritmo \emph{JRIP} obtiene tasas de error similares a su homónimo basado en árboles de decisión (\emph{J48}) pero con tasas de error algo peores en promedio y
+
+			\item el algoritmo \emph{PART} otiene resultados aceptables exceptuando el caso del conjunto de datos \emph{Labor}, para el cual se presenta como la peor alternativa, y \emph{Weather} por razones similares al resto de estrategias de aprendizaje (conjunto de entrenamiento demasiado pequeño junto con poda).
+		\end {enumerate*}
+
+		\paragraph{}
+		Tras el análisis de los resultados obtenidos, conviene remarcar que la elección entre las distintas estrategias de aprendizaje no es una tarea arbitraria, sino que depende de muchos factores como la estructura del conjunto de datos, la cantidad de instancias de entrenamieno que se posean, las limitaciones computacionales donde se pretenda instaurar el sistema o la tasa de error admisible en la clasificación de resultados.
+
+
 %-----------------------------
 %	Bibliographic references
 %-----------------------------
+	\newpage
 	\nocite{garciparedes:machine-learning-decision-trees-and-rules}
 	\nocite{subject:taa}
 	\nocite{tool:weka}
