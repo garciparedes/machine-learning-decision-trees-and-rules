@@ -33,40 +33,71 @@
 	\label{sec:introducción}
 
 		\paragraph{}
-		[TODO ]
+		En este documento se exponen los resultados obtenidos de realizar un conjunto de experimentos sobre varios conjuntos de datos de distintas características sobre algoritmos de aprendizaje automático basados en aprendizaje supervisado. Para ello se ha utilizado la suite de aprendizaje automático \textbf{Weka} \cite{tool:weka}, la cual ha sido es desarrollada por la \emph{Universidad de Waikato}, Nueva Zelanda.
 
-		\subsection{Algoritmos}
+		\paragraph{}
+		El motivo de dichos experimentos es la comparación entre estrategias de aprendizaje basadas en \emph{árboles de decisión} contra estrategias basadas en \emph{generación de reglas}. En las subsecciones \ref{sec:algorithms} y \ref{sec:datasets} se describen respectivamente los \emph{Algoritmos de Aprendizaje} y los \emph{Conjuntos de Datos} utilizados. Seguidamente, en la sección \ref{sec:e1} se exponen los resultados de realizar un experimento de \emph{Holdout} sobre 4 de los conjuntos de datos. Seguidamente, en la sección \ref{sec:e2} se realiza el mismo experimento, pero esta vez sobre un conjunto de datos cuya partición de instancias de entrenamiento y test viene dada a priori tal y como se explicará. Por último, en la sección \ref{sec:conclusions} se realiza un breve comentario acerca de los resultados obtenidos.
+
+
+		\subsection{Algoritmos de Aprendizaje}
+		\label{sec:algorithms}
 
 			\paragraph{}
-			[TODO ]
+			Tal y como se ha dicho anteriormente, los algoritmos de aprendizaje utilizados se corresponden con aprendizaje basado en árboles de decisión y basados en reglas. En primer lugar se describe el algoritmo \emph{J48}:
 
 			\begin{itemize}
-				\item \textbf{Iris}:
-				\item	\textbf{Labor}:
-				\item	\textbf{Image Segmentation}:
-				\item	\textbf{Soybean}:
-				\item	\textbf{Weather}:
+ 				\item \textbf{J48}: Es la implementación en Java de \emph{C4.5}, un método de generación de árboles de decisión basado en la \emph{Teoría de la Información}. En cada iteración trata de maximizar la ganancia de información producida tras cada partición con respecto de la clase de destino. Además, proporciona otras mejoras como \emph{poda de ramas} para evitar el sobreajuste, el uso de \emph{valores continuos} o el tratamiento de \emph{valores desconocidos}.
 			\end{itemize}
 
-		\subsection{Conjuntos de Datos}
-
 			\paragraph{}
-			[TODO ]
+			Una vez descrito el algoritmo utilizado para representar los algoritmos basasados en generación de árboles de decisión, se describe el caso de los basados en reglas. En este caso son \emph{1R}, \emph{PRISM}, \emph{JRIP} y \emph{PART}:
 
 			\begin{itemize}
-				\item \textbf{J48}:
 				\item \textbf{1R}:
+
 				\item \textbf{PRISM}:
-				\item \textbf{JRIP}:
+
+				\item \textbf{JRIP}: Es la implementación en Java de \emph{RIPPER}, un método de aprendizaje supervisado basado en reglas cuyas siglas significan \say{\emph{Repeated Incremental Pruning to Produce Error Reduction}}, lo que puede entenderse como la eliminación de reglas que se cumplen con pocas instancias para reducir el sobreajuste producido en la fase de aprendizaje, que genera todo el conjunto de reglas posibles a partir de una determinada heurística.
+
 				\item \textbf{PART}:
 			\end{itemize}
 
+		\subsection{Conjuntos de Datos}
+		\label{sec:datasets}
+
+			\paragraph{}
+			[TODO ]
+
+			\begin{itemize}
+
+				\item \textbf{Iris}\cite{dataset:iris}: Está formado por \emph{150 instancias} formadas por \emph{4 atributos}, todos ellos de carácter real. La clase de destino puede tomar \emph{3 valores} distintos. El conjunto de datos se corresponde con instancias referidas a atributos de la especie de plantas \emph{Iris} y la clase de destino representa una subcategoría de la misma.
+
+				\item \textbf{Labor}\cite{dataset:labor}: Está formado por \emph{57 instancias} formadas por \emph{16 atributos} de los cuales, 8 de ellos son de tipo numérico mientras que el resto son de carácter nominal. La clase de destino puede tomar \emph{2 valores} distintos. El conjunto de datos se corresponde con resultados de negociaciones industriales en Canadá.
+
+				\item \textbf{Soybean}\cite{dataset:soybean}: Está formado por \emph{683 instancias} formadas por \emph{35 atributos}, todos ellos de carácter nominal. La clase de destino puede tomar \emph{19 valores} distintos. El conjunto de datos se corresponde con instancias referidas a atributos de plantas y la clase de destino representa el tipo de planta.
+
+				\item	\textbf{Weather}\cite{dataset:weather}: Está formado por \emph{13 instancias} formadas por \emph{4 atributos}, todos ellos de carácter nominal. La clase de destino puede tomar \emph{2 valores} distintos. El conjunto de datos se corresponde con un conjunto de instancias referidas a características climatológicas que sirve para predecir si es posible jugar al tennis en dichas condiciones.
+
+			\end{itemize}
+
+			\paragraph{}
+			[TODO ]
+
+			\begin{itemize}
+
+				\item	\textbf{Image Segmentation}\cite{dataset:segmentation}:
+
+			\end{itemize}
 
 	\section{Experimento \emph{Holdout} $\tfrac{2}{3}/\tfrac{1}{3}$ sobre \emph{Iris}, \emph{Labor}, \emph{Soybean} y \emph{Weather}}
 	\label{sec:e1}
 
 		\paragraph{}
-		[TODO ]
+		El método de \emph{Holdout} consiste en el particionamiento del conjunto global de datos en 2 subconjuntos. Dicho método de experimentación requiere como entrada el porcentaje de datos que se utilizará para la tarea de entrenamiento, del cual se deriva el que se utilizará para test. En este caso se ha decidido utilizar $\tfrac{2}{3}$ del conjunto de datos para entrenamiento y $\tfrac{1}{3}$ para test. El método de selección que utiliza \emph{Holdout} para seleccionar las instancias que formarán cada conjunto es la \emph{selección aleatoria sin reemplazamiento}.
+
+
+		\paragraph{}
+		Los resultados obtenidos tras realizar el experimento descrito en el párrafo anterior se muestran en la tabla \ref{table:holdout-results}.
 
 		\begin{table}[h]
 			\centering
@@ -105,6 +136,8 @@
 			\caption{Tasas de Error [TODO ]}
 			\label{table:custom-dataset}
 		\end{table}
+
+
 	\section{Conclusiones}
 	\label{sec:conclusions}
 
